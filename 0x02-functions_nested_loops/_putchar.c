@@ -1,4 +1,3 @@
-#!/bin/bash
 #include "main.h"
 	#include <unistd.h>
 	/**
@@ -12,6 +11,3 @@
 	{
 		return (write(1, &c, 1));
 	}
-
-
-

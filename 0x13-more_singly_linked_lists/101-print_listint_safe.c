@@ -5,7 +5,7 @@ size_t looped_listint_len(const listint_t *head);
 size_t print_listint_safe(const listint_t *head);
 
 /**
- * looped_listint_len - Counts the number of unique nodes
+ *ok looped_listint_len - Counts the number of unique nodes
  * in a looped listint_t linked list.
  * @head: A pointer to the head of the listint_t to check.
  *
@@ -53,7 +53,7 @@ size_t looped_listint_len(const listint_t *head)
 }
 
 /**
- * print_listint_safe - Prints a listint_t list safely.
+ *ok  print_listint_safe - Prints a listint_t list safely.
  * @head: A pointer to the head of the listint_t list.
  *
  * Return: The number of nodes in the list.
@@ -85,50 +85,4 @@ size_t print_listint_safe(const listint_t *head)
  }
 
  return (nodes);
-}
-
-
-===================================
-
-102-free_listint_safe.c
-
-#include "lists.h"
-
-/**
- * free_listint_safe - frees a linked list
- * @h: pointer to the first node in the linked list
- *
- * Return: number of elements in the freed list
- */
-size_t free_listint_safe(listint_t **h)
-{
- size_t len = 0;
- int diff;
- listint_t *temp;
-
- if (!h || !*h)
- return (0);
-
- while (*h)
- {
- diff = *h - (*h)->next;
- if (diff > 0)
- {
- temp = (*h)->next;
- free(*h);
- *h = temp;
- len++;
- }
- else
- {
- free(*h);
- *h = NULL;
- len++;
- break;
- }
- }
-
- *h = NULL;
-
- return (len);
 }
